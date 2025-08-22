@@ -11,7 +11,6 @@ interface ConfigFileServer {
     port?: number
     consolePort?: string
     consolePassword?: string
-    rconMode?: "active" | "passive"
     serverPassword?: string
     whitelist?: boolean
     maxPlayers?: number
@@ -19,6 +18,7 @@ interface ConfigFileServer {
     saveInterval?: number
     backupSaves?: boolean
     backupInterval?: number
+    enableAstrochatIntegration?: boolean
     customHeartbeat?: boolean
     discordWebhook?: string
     restartAt?: string
@@ -70,7 +70,6 @@ export const parseConfig = (configPath: string, starter: Starter) => {
             s.port ?? 8777,
             s.consolePort ?? "_auto",
             s.consolePassword ?? "_random",
-            s.rconMode ?? "active",
             s.serverPassword ?? "",
             s.whitelist ?? false,
             s.maxPlayers ?? 8,
@@ -78,6 +77,7 @@ export const parseConfig = (configPath: string, starter: Starter) => {
             s.saveInterval ?? 900,
             s.backupSaves ?? true,
             s.backupInterval ?? 3600,
+            s.enableAstrochatIntegration ?? false,
             s.customHeartbeat ?? false,
             s.discordWebhook ?? "",
             s.restartAt ?? "",

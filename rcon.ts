@@ -79,7 +79,7 @@ export class RconManager {
     public saves: RconSave[] = []
 
 
-    constructor(private consoleAddr: string, private consolePassword: string, private mode: "active" | "passive", private server: Server) { }
+    constructor(private consoleAddr: string, private consolePassword: string, private server: Server) { }
 
     // if this.connectInterval is set, it means the socket should be connecting
     // if this.isConnected is set to true it means there is an active tcp connection
@@ -89,7 +89,7 @@ export class RconManager {
         // When the socket is told to connect start an internal loop that will constantly try to
         // connect to the server if it's not connected. This is to make sure the socket stays connected.
         if (!this.connectInterval) {
-            this.connectInterval = setInterval(() => this.connectSocket(), 5000)
+            this.connectInterval = setInterval(() => this.connectSocket(), 1000)
         }
 
         // reset this here just in case
@@ -284,7 +284,7 @@ export class RconManager {
             setTimeout(() => this.connect(), 60000)
         }
 
-        if (this.server.starter.rconErrorRestart && (Date.now() - this.lastSuccesfulTotal > 1800 * 1000)) {
+        if (this.server.starter.rconErrorRestart && (Date.now() - this.lastSuccesful > 1800 * 1000)) {
             infoWebhook("Lost connection to server", this.server.name, this.server.webhook)
             this.server.starter.shutdown(true)
         }

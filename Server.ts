@@ -46,7 +46,7 @@ export class Server {
     private lastHeartbeat = 0
 
     // placeholder managers (so that I don't to deal with them being undefined)
-    public rcon = new RconManager("", "", "active", this)
+    public rcon = new RconManager("", "", this)
     public players = new PlayerManager(this)
 
 
@@ -58,7 +58,6 @@ export class Server {
         port: number,
         consolePort: string,
         public consolePassword: string,
-        public rconMode: "active" | "passive",
         private serverPassword: string,
         public whitelist: boolean,
         public maxPlayers: number,
@@ -66,6 +65,7 @@ export class Server {
         public saveInterval: number,
         public backupSaves: boolean,
         public backupInterval: number,
+        public enableAstrochatIntegration: boolean,
         public customHeartbeat: boolean,
         public webhook: string,
         public restartAt: string,
@@ -107,17 +107,16 @@ export class Server {
             ? Math.random().toString(36).substring(2)
             : this.consolePassword
 
-        // configure server dir + analytics log dir
+        // configure server dir
         this.serverDir = path.join(this.starter.dir, "starterData", "servers", this.id)
         fs.ensureDirSync(this.serverDir)
-        fs.ensureDirSync(path.join(this.serverDir, "analytics"))
 
         // add to playfab server queries
         this.starter.playfab.add(this.serverAddr)
 
         // configure rcon
         if (this.serverType !== "playfab")
-            this.rcon = new RconManager(this.consoleAddr, this.consolePassword, this.rconMode, this)
+            this.rcon = new RconManager(this.consoleAddr, this.consolePassword, this)
 
         // only allow custom heartbeat for local servers
         if (this.serverType !== "local") this.customHeartbeat = false
@@ -313,7 +312,7 @@ export class Server {
             if (this.serverType === "local") {
                 // for local server wait for RCON to end process, if it doesn't kill it manually
                 setTimeout(() => {
-                    if (this.running) this.process?.kill(Deno.Signal.SIGINT)
+                    if (this.running) this.process?.kill("SIGTERM")
                 }, 4000)
             } else {
                 // for remote server just assume that RCON did the job
@@ -447,13 +446,17 @@ Port=${this.serverAddr.split(":")[1]}
 [/Script/OnlineSubsystemUtils.IpNetDriver]
 MaxClientRate=1000000
 MaxInternetClientRate=1000000
-
-[/Game/ChatMod/ChatManager.ChatManager_C]
-WebhookUrl="http://localhost:${this.starter.webserverPort}/api/servers/${this.id}/astrochat"
 `
 
+        if (this.enableAstrochatIntegration) {
+            engineConfig += `
+[/Game/ChatMod/ChatManager.ChatManager_C]
+WebhookUrl="http://localhost:5001/api/astrochat/${this.id}"
+`
+        }
+
         if (this.configFileExtra["Engine.ini"]) {
-            engineConfig += this.configFileExtra["Engine.ini"]
+            astroConfig += this.configFileExtra["AstroServerSettings.ini"]
         }
 
         await Deno.writeTextFile(path.join(configPath, "Engine.ini"), engineConfig)

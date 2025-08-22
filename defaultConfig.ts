@@ -17,6 +17,7 @@ export const defaultConfig = {
             "saveInterval": 900,
             "backupSaves": true,
             "backupInterval": 3600,
+            "enableAstrochatIntegration": false,
             "customHeartbeat": true,
             "discordWebhook": "",
             "restartAt": "06:00",
